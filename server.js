@@ -31,7 +31,7 @@ app.post("/short",(req,res)=>{
   db[cat] = url;
 
   res.json({
-    short:`https://你的-render網址.onrender.com/${encodeURIComponent(cat)}`
+    short:`https://cat-url.onrender.com${encodeURIComponent(cat)}`
   });
 });
 
