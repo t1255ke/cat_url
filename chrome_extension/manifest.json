@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "貓咪縮網址",
   "version": "1.0",
-  "description": "把網址縮成貓咪顏文字",
+  "description": "把網址變成貓咪短網址",
   "action": {
     "default_popup": "popup.html"
   },
