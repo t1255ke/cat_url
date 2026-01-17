@@ -3,19 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <style>
-body{width:250px;font-family:sans-serif;margin:10px;}
-input,button{width:100%;margin-top:5px;padding:5px;font-size:14px;}
+body{
+  width:260px;
+  font-family:sans-serif;
+  margin:10px;
+  background-color:#E6F0FF; /* 淡藍 */
+  color:#003366; /* 深藍文字 */
+  border-radius:10px;
+  padding:10px;
+}
+input,button{
+  width:100%;
+  margin-top:5px;
+  padding:8px;
+  font-size:14px;
+  border-radius:5px;
+  border:1px solid #99c;
+}
 #result{margin-top:10px;word-break:break-all;}
+#cat{font-size:20px;text-align:center;margin:5px 0;}
+#copy{
+  display:none;
+  background-color:#3399FF;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+#copy:hover{
+  background-color:#0066CC;
+}
+img{
+  display:block;
+  margin:10px auto;
+  width:50px;
+  height:50px;
+}
 </style>
 </head>
 <body>
 
+<img src="https://i.imgur.com/7y3ZtYc.png" alt="cute cat">
 <input id="url" placeholder="貼上網址">
 <button id="shorten">縮成貓咪</button>
 
-<p id="cat" style="font-size:18px;text-align:center;margin:5px 0;"></p>
+<p id="cat"></p>
 <p id="result"></p>
-<button id="copy" style="display:none;">複製短網址</button>
+<button id="copy">複製短網址</button>
 
 <script src="popup.js"></script>
 </body>

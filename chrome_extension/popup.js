@@ -18,15 +18,13 @@ shortenBtn.onclick = async ()=>{
     const data = await res.json();
     result.innerText = data.short;
     cat.innerText = data.cat;
-    copyBtn.style.display = "block"; // 顯示複製按鈕
-
+    copyBtn.style.display = "block"; 
   }catch(err){
     console.error(err);
     alert("生成短網址失敗");
   }
 };
 
-// 複製按鈕
 copyBtn.onclick = ()=>{
   const text = result.innerText;
   navigator.clipboard.writeText(text).then(()=>{

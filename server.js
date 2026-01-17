@@ -5,23 +5,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 暫存資料：shortCode -> 原始網址
 const db = {};
 
-// 簡單貓咪對照表
+// ASCII 貓咪
 const catEmojis = ["=^.^=", "(=^ω^=)", "(=^･ｪ･^=)", "ฅ^•ﻌ•^ฅ", "(=^･ω･^=)"];
+// 貓咪單字
+const catWords = ["meow","nyan","purr","kitty","mew","catnip","feline","whisker"];
 
-// 產生短碼（ASCII 乾淨）
+// 產生短碼
 function genCode(){
-  const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  let code = "";
-  for(let i=0;i<5;i++){
-    code += chars.charAt(Math.floor(Math.random()*chars.length));
-  }
-  return code;
+  const word = catWords[Math.floor(Math.random()*catWords.length)];
+  const num = Math.floor(Math.random()*100);
+  return word + num; // meow42
 }
 
-// POST /short → 產生短網址
+// POST /short
 app.post("/short",(req,res)=>{
   const {url} = req.body;
   const code = genCode();
@@ -35,7 +33,7 @@ app.post("/short",(req,res)=>{
   });
 });
 
-// GET /:code → 轉址
+// GET /:code 轉址
 app.get("/:code",(req,res)=>{
   const url = db[req.params.code];
   if(!url) return res.send("找不到網址");
