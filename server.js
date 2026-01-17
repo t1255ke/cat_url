@@ -8,7 +8,17 @@ app.use(express.json());
 const db = {};
 
 // ASCII 貓咪
-const catEmojis = ["=^.^=", "(=^ω^=)", "(=^･ｪ･^=)", "ฅ^•ﻌ•^ฅ", "(=^･ω･^=)"];
+const catEmojis = [
+
+"ฅ(͡°ᴥ͡°)ฅ",
+"ฅ₍ᓀ‸ᓂマ ੭♪",
+"ฅ^ ◞ ﻌ ◟ ^ฅ",
+"ⓛⰙⓛฅ",
+"ฅ(=චᆽච=ฅ)",
+"ฅ^•ꈊ•^ฅو",
+"ฅ^ >ꞈ < ^ฅ ࿔",
+];
+
 // 貓咪單字
 const catWords = ["meow","nyan","purr","kitty","mew","catnip","feline","whisker"];
 
