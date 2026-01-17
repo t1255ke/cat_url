@@ -2,7 +2,7 @@ document.getElementById("shorten").onclick = async ()=>{
   let url = document.getElementById("url").value;
 
   let res = await fetch(
-    "https://你的-render網址.onrender.com/short",
+    "https://cat-url.onrender.com/short",
     {
       method:"POST",
       headers:{"Content-Type":"application/json"},
