@@ -4,7 +4,7 @@
 
 ---
 
-## 🛠 使用到的套件與工具
+## 使用到的套件與工具
 
 - **Chrome**（擴充開發）  
 - **HTML / CSS / JavaScript**（前端開發）  
@@ -16,7 +16,7 @@
 
 ---
 
-## 📦 安裝步驟
+## 安裝步驟
 
 1. 下載或 clone 專案：
 
@@ -24,15 +24,15 @@
 git clone https://github.com/user/cat_url.git
 ```
 
-2. 打開 Chrome → 進入 `chrome://extensions/`  
+2. 打開 Chrome 進入 `chrome://extensions/`  
 3. 開啟 **開發者模式**  
 4. 點擊 **載入已解壓的擴充功能**  
-5. 選擇專案資料夾(chrome_extension)
-6. 成功後，工具列會出現貓咪圖示
+5. 選擇**chrome_extension**資料夾
+6. 成功!看看工具列有沒有喵網址的icon
 
 ---
 
-## 🖱 使用教學
+## 使用教學
 
 1. 點擊 Chrome 工具列的擴充圖示  
 2. 點擊 **生成短網址按鈕** → 自動抓取當前頁面網址  

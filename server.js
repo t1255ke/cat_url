@@ -43,7 +43,7 @@ function genCode(){
 app.post("/short",(req,res)=>{
   const {url} = req.body;
   const code = genCode();
-  const cat = 'catEmojis[Math.floor(Math.random()*catEmojis.length)];'
+  const cat = catEmojis[Math.floor(Math.random()*catEmojis.length)];
 
   db[code] = url;
 
