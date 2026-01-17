@@ -2,56 +2,44 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-// ✅ 允許所有來源，並允許 preflight 請求
-app.use(cors({
-  origin: "*",       // 允許所有來源
-  methods: ["GET","POST","OPTIONS"], // 支援 GET/POST/OPTIONS
-  allowedHeaders: ["Content-Type"]
-}));
-
+app.use(cors());
 app.use(express.json());
 
-// 暫存資料
+// 暫存資料：shortCode -> 原始網址
 const db = {};
 
-const cats = [
-  "=^.^=",
-  "(=^ω^=)",
-  "ฅ^•ﻌ•^ฅ",
-  "(=^･ｪ･^=)"
-];
+// 簡單貓咪對照表
+const catEmojis = ["=^.^=", "(=^ω^=)", "(=^･ｪ･^=)", "ฅ^•ﻌ•^ฅ", "(=^･ω･^=)"];
 
-function genCode() {
-  return Math.random().toString(36).slice(2,6);
+// 產生短碼（ASCII 乾淨）
+function genCode(){
+  const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let code = "";
+  for(let i=0;i<5;i++){
+    code += chars.charAt(Math.floor(Math.random()*chars.length));
+  }
+  return code;
 }
 
-function toCat(code) {
-  return [...code].map(c=>{
-    return cats[c.charCodeAt(0)%cats.length];
-  }).join("");
-}
-
-/* 建立短網址 */
-app.post("/short", (req,res)=>{
+// POST /short → 產生短網址
+app.post("/short",(req,res)=>{
   const {url} = req.body;
   const code = genCode();
-  const cat = toCat(code);
+  const cat = catEmojis[Math.floor(Math.random()*catEmojis.length)];
 
-  db[cat] = url;
+  db[code] = url;
 
   res.json({
-    short: `https://cat-url.onrender.com/${encodeURIComponent(cat)}`
+    short: `https://cat-url.onrender.com/${code}`,
+    cat
   });
 });
 
-/* 轉址 */
-app.get("/:cat", (req,res)=>{
-  const cat = decodeURIComponent(req.params.cat);
-  const url = db[cat];
-
-  if(!url) return res.send("找不到貓咪");
-
+// GET /:code → 轉址
+app.get("/:code",(req,res)=>{
+  const url = db[req.params.code];
+  if(!url) return res.send("找不到網址");
   res.redirect(url);
 });
 
-app.listen(3000, ()=>console.log("Server running on port 3000"));
+app.listen(3000,()=>console.log("Server running on port 3000"));
