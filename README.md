@@ -8,9 +8,9 @@
 
 ## 使用到的套件與工具
 
-- **Chrome**（擴充開發）  
-- **HTML / CSS / JavaScript**（前端開發）  
-- **Chrome Extensions Manifest V3**  
+- **Chrome**:擴充開發）  
+- **HTML / CSS / JavaScript**: 前端開發
+- **Chrome Extensions Manifest V3**(Chrome 擴充功能設定檔格式)
 - **Fetch API**（呼叫短網址後端服務）  
 - **navigator.clipboard**（複製短網址到剪貼簿）  
 - **chrome.tabs.query**（取得當前分頁網址）  

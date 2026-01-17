@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "貓咪縮網址",
+  "name": "喵網址",
   "version": "1.0",
   "action": {
     "default_popup": "popup.html",
