@@ -36,7 +36,7 @@ function genCode(){
     const word = catWords[Math.floor(Math.random()*catWords.length)];
     const codeLength = 8; //隨機數字需要幾位填幾位
     const code = randomString(codeLength);
-    return word + code; // kittya3Fz
+    return word + '-' +code; // kittya3Fz
 }
 
 //產生隨機英數字
