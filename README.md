@@ -36,7 +36,7 @@ git clone https://github.com/user/cat_url.git
 
 1. 點擊 Chrome 工具列的擴充圖示  
 2. 點擊 **paste按鈕**將會自動抓取當前頁面網址  
-![點擊貼上](assets/step1.png)
+![點擊貼上](./assets/step1.png)
 3. 生成完成後，短網址會顯示在中間，顏色粉紅，貓咪顏文字隨機顯示  
 4. 點擊 **複製按鈕**，將短網址複製到剪貼簿
 
