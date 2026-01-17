@@ -1,9 +1,18 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
+const app = express();
+
+// ✅ 允許所有來源，並允許 preflight 請求
+app.use(cors({
+  origin: "*",       // 允許所有來源
+  methods: ["GET","POST","OPTIONS"], // 支援 GET/POST/OPTIONS
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
-const db = {}; // 暫存資料
+// 暫存資料
+const db = {};
 
 const cats = [
   "ฅ•ω•ฅ",
@@ -13,18 +22,18 @@ const cats = [
   "(=ＴェＴ=)"
 ];
 
-function genCode(){
+function genCode() {
   return Math.random().toString(36).slice(2,6);
 }
 
-function toCat(code){
+function toCat(code) {
   return [...code].map(c=>{
     return cats[c.charCodeAt(0)%cats.length];
   }).join("");
 }
 
 /* 建立短網址 */
-app.post("/short",(req,res)=>{
+app.post("/short", (req,res)=>{
   const {url} = req.body;
   const code = genCode();
   const cat = toCat(code);
@@ -32,12 +41,12 @@ app.post("/short",(req,res)=>{
   db[cat] = url;
 
   res.json({
-    short:`https://cat-url.onrender.com${encodeURIComponent(cat)}`
+    short: `https://cat-url.onrender.com/${encodeURIComponent(cat)}`
   });
 });
 
 /* 轉址 */
-app.get("/:cat",(req,res)=>{
+app.get("/:cat", (req,res)=>{
   const cat = decodeURIComponent(req.params.cat);
   const url = db[cat];
 
@@ -46,4 +55,4 @@ app.get("/:cat",(req,res)=>{
   res.redirect(url);
 });
 
-app.listen(3000,()=>console.log("server running"));
+app.listen(3000, ()=>console.log("Server running on port 3000"));
