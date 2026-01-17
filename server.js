@@ -33,15 +33,30 @@ const catWords = ["meow","nyan","purr","kitty","mew","catnip","feline","whisker"
 
 // 產生短碼
 function genCode(){
-  const word = catWords[Math.floor(Math.random()*catWords.length)];
-  const num = Math.floor(Math.random()*100);
-  return word + num; // meow42
+    const word = catWords[Math.floor(Math.random()*catWords.length)];
+    const codeLength = 8; //隨機數字需要幾位填幾位
+    const code = randomString(codeLength);
+    return word + code; // kittya3Fz
+}
+
+//產生隨機英數字
+function randomString(length){
+    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let result = "";
+    for(let i=0;i<length;i++){
+        result += chars[Math.floor(Math.random()*chars.length)];
+    }
+    return result;
 }
 
 // POST /short
 app.post("/short",(req,res)=>{
   const {url} = req.body;
-  const code = genCode();
+  let code;//若重複即重新生成
+  do {
+      code = genCode();
+  } while(db[code]);
+
   const cat = catEmojis[Math.floor(Math.random()*catEmojis.length)];
 
   db[code] = url;
