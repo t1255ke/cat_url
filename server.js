@@ -9,7 +9,11 @@ const db = {};
 
 // ASCII 貓咪
 const catEmojis = [
-
+"ฅ^. ˬ .^ฅⳊ",
+"( ^ฅ>////<ฅ^)",
+"₍^.̫.^₎ฅ⋆⭒˚｡⋆",
+"ฅ(＾・ω・＾ฅ)",
+"ฅ^> ᴗ <^₎",
 "ฅ(͡°ᴥ͡°)ฅ",
 "ฅ₍ᓀ‸ᓂマ ੭♪",
 "ฅ^ ◞ ﻌ ◟ ^ฅ",
@@ -17,6 +21,12 @@ const catEmojis = [
 "ฅ(=චᆽච=ฅ)",
 "ฅ^•ꈊ•^ฅو",
 "ฅ^ >ꞈ < ^ฅ ࿔",
+"ฅ^ ◞ ع ◟ ^ฅ",
+"=^.^=",
+"(=^ω^=)",
+"(=^･ｪ･^=)",
+"ฅ^•ﻌ•^ฅ",
+"(=^･ω･^=)"
 ];
 
 // 貓咪單字
@@ -33,7 +43,7 @@ function genCode(){
 app.post("/short",(req,res)=>{
   const {url} = req.body;
   const code = genCode();
-  const cat = catEmojis[Math.floor(Math.random()*catEmojis.length)];
+  const cat = 'catEmojis[Math.floor(Math.random()*catEmojis.length)];'
 
   db[code] = url;
 
