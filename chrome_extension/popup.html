@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body{
+    width:260px;
+    height:360px; /* popup 高度 */
+    font-family:sans-serif;
+    margin:0;
+    background-color:#d6e6fd;
+    color:#221015;
+    border: 20px solid transparent; /* 邊框寬度 */
+    border-image: url('assets/ribbon.png') 30 round; /* 緞帶圖片 */
+    border-image-slice: 30; /* 根據圖片留邊比例 */
+}
+#result{margin-top:10px;
+        text-align: center;
+        color: #f986c0;
+        font-weight: bold;
+        word-break:break-all;
+        font-size:20px;
+      }
+#cat{font-size:20px;text-align:center;margin:5px 0;}
+img.button{
+    display:block;
+    width:105px;
+    height:auto;
+    margin:10px auto;
+    cursor:pointer;
+    transition: transform 0.2s;
+}
+img.button:hover{
+    transform: scale(1.1);
+}
+img#topIcon{
+    width:100px;
+    height:auto;
+    display:block;
+    margin:10px auto;
+}
+</style>
+</head>
+<body>
+
+<img id="topIcon" src="assets/icon.jpg" alt="cute cat">
+
+<!-- 生成短網址按鈕 -->
+<img id="generate" class="button" src="assets/paste.png" alt="生成短網址">
+
+<p id="cat"></p>
+<p id="result"></p>
+
+<!-- 複製按鈕-->
+<img id="copy" class="button" src="assets/copy.png" alt="複製短網址" style="display:none;">
+
+<!-- QR Code 圖片 -->
+<img id="qrCode" src="" alt="QR Code" style="display:none;">
+
+<!-- 下載 QR Code 按鈕 -->
+<img id="downloadQr" class="button" src="assets/download.png" alt="下載 QR Code" style="display:none;">
+
+
+<script src="popup.js"></script>
+</body>
+</html>
